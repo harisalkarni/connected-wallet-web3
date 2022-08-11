@@ -13,10 +13,19 @@ export default function Home() {
     }
   }
 
+  async function disconnect(){
+    try{
+      deactivate()
+    } catch (ex) {  
+      console.log(ex)
+    }
+  }
+
   return (
     <div>
       <button onClick={connect} classname='py-2 mt-20 mb-4 text-lg font-bold text-white rounded-lg w-56 bg-blue-600 hover:bg-blue-800'>Connect to Metamask</button>
       { active ? <span>Connected with : <b>{account}</b></span> : <span>Not connected</span>}
+      <button onClick={disconnect}>disconnect</button>
     </div>
   )
 }
